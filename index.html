@@ -1,883 +1,341 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mustafa Mohammed Syed | Professional Chef & Kitchen Master</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Playfair Display for headings, Inter for body -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    <!-- FontAwesome for professional icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        slate950: '#0a0d14',
-                        slate900: '#111827',
-                        slate800: '#1f2937',
-                        amberGold: '#d97706',
-                        amberLight: '#fbbf24',
-                        amberDark: '#b45309'
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        serif: ['Playfair Display', 'serif']
-                    }
-                }
-            }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mustafa Mohammed Syed | Chef Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: '#0b0d10',
+            gold: '#d99a3d',
+            cream: '#f5efe5'
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Playfair Display', 'serif']
+          }
         }
-    </script>
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0a0d14;
-            color: #f3f4f6;
-        }
-        h1, h2, h3, h4, .font-serif {
-            font-family: 'Playfair Display', serif;
-        }
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #0a0d14;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #1f2937;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #d97706;
-        }
-    </style>
+      }
+    }
+  </script>
+
+  <style>
+    body { font-family: Inter, sans-serif; background:#0b0d10; color:#f5f5f4; }
+    h1,h2,h3,.serif { font-family:'Playfair Display', serif; }
+    .hero-bg { background:
+      linear-gradient(90deg, rgba(11,13,16,.92) 0%, rgba(11,13,16,.72) 48%, rgba(11,13,16,.35) 100%),
+      url('https://images.unsplash.com/photo-1556910103-1c02745aae4d?q=85&w=2200&auto=format&fit=crop') center/cover;
+    }
+    .food-card img { transition: transform .6s ease; }
+    .food-card:hover img { transform: scale(1.05); }
+    .food-card { transition: transform .25s ease, border-color .25s ease; }
+    .food-card:hover { transform: translateY(-4px); border-color: rgba(217,154,61,.55); }
+    .timeline-line::before {
+      content:""; position:absolute; left:9px; top:0; bottom:0; width:1px; background:#30343b;
+    }
+    .timeline-dot { box-shadow:0 0 0 6px #0b0d10; }
+  </style>
 </head>
-<body class="bg-slate950 text-gray-100 antialiased selection:bg-amber-600 selection:text-white">
 
-    <!-- Navigation Header -->
-    <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-slate950/80 backdrop-blur-md border-b border-gray-800/60">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <a href="#hero" class="flex items-center space-x-3 group">
-                <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-amber-700 to-amber-500 flex items-center justify-center shadow-lg shadow-amber-900/30 group-hover:scale-105 transition-transform">
-                    <i class="fa-solid fa-utensils text-white text-sm"></i>
-                </div>
-                <div>
-                    <span class="font-serif text-lg font-bold tracking-wider text-white block">Mustafa M. Syed</span>
-                    <span class="text-xs text-amber-500 font-medium tracking-widest uppercase">Executive Chef</span>
-                </div>
-            </a>
-
-            <!-- Desktop Nav Links -->
-            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium tracking-wide">
-                <a href="#about" class="text-gray-300 hover:text-amber-500 transition-colors">About</a>
-                <a href="#gallery" class="text-gray-300 hover:text-amber-500 transition-colors">Plating Gallery</a>
-                <a href="#menus" class="text-gray-300 hover:text-amber-500 transition-colors">Menu Engineering</a>
-                <a href="#standards" class="text-gray-300 hover:text-amber-500 transition-colors">Kitchen Ops</a>
-                <a href="#resume" class="text-gray-300 hover:text-amber-500 transition-colors">Experience</a>
-                <a href="#contact" class="px-5 py-2.5 rounded-full bg-amber-600 hover:bg-amber-500 text-white font-semibold shadow-lg shadow-amber-600/20 transition-all transform hover:-translate-y-0.5">Contact Me</a>
-            </nav>
-
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-btn" class="md:hidden text-gray-300 hover:text-amber-500 focus:outline-none p-2">
-                <i class="fa-solid fa-bars text-2xl"></i>
-            </button>
-        </div>
-
-        <!-- Mobile Menu Dropdown -->
-        <div id="mobile-menu" class="hidden md:hidden bg-slate900 border-b border-gray-800 px-6 py-6 space-y-4">
-            <a href="#about" class="block text-gray-300 hover:text-amber-500 font-medium py-1">About</a>
-            <a href="#gallery" class="block text-gray-300 hover:text-amber-500 font-medium py-1">Plating Gallery</a>
-            <a href="#menus" class="block text-gray-300 hover:text-amber-500 font-medium py-1">Menu Engineering</a>
-            <a href="#standards" class="block text-gray-300 hover:text-amber-500 font-medium py-1">Kitchen Ops</a>
-            <a href="#resume" class="block text-gray-300 hover:text-amber-500 font-medium py-1">Experience</a>
-            <a href="#contact" class="block text-center mt-4 px-5 py-3 rounded-xl bg-amber-600 text-white font-semibold">Contact Me</a>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section id="hero" class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
-        <!-- Background Overlay with Gourmet Kitchen Vibe -->
-        <div class="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?q=80&w=2000&auto=format&fit=crop" alt="Chef Preparing Food" class="w-full h-full object-cover object-center opacity-25 scale-105 animate-pulse duration-[10000ms]">
-            <div class="absolute inset-0 bg-gradient-to-t from-slate950 via-slate950/80 to-slate950/40"></div>
-        </div>
-
-        <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-24">
-            <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs sm:text-sm font-semibold tracking-wider uppercase mb-6 backdrop-blur-sm">
-                <i class="fa-solid fa-star text-amber-500"></i>
-                <span>Culinary Excellence & Kitchen Master</span>
-            </div>
-            
-            <h1 class="text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-white mb-6">
-                Mustafa Mohammed <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-amber-300">Syed</span>
-            </h1>
-            
-            <p class="max-w-2xl mx-auto text-lg sm:text-xl text-gray-300 font-light leading-relaxed mb-10">
-                Crafting extraordinary sensory experiences through disciplined kitchen leadership, modern fine dining artistry, and rigorous operational perfection.
-            </p>
-
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a href="#gallery" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-amber-600 hover:bg-amber-500 text-white font-semibold shadow-xl shadow-amber-600/30 transition-all transform hover:-translate-y-1 flex items-center justify-center space-x-3">
-                    <span>Explore Plating Gallery</span>
-                    <i class="fa-solid fa-arrow-down text-xs"></i>
-                </a>
-                <a href="#contact" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-slate800/80 hover:bg-slate800 text-gray-200 border border-gray-700 font-semibold backdrop-blur-md transition-all hover:border-amber-500/50 flex items-center justify-center space-x-3">
-                    <span>Get in Touch</span>
-                    <i class="fa-regular fa-envelope text-xs"></i>
-                </a>
-            </div>
-
-            <!-- Quick Stats Bar -->
-            <div class="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6 pt-10 border-t border-gray-800/80">
-                <div class="p-4 rounded-2xl bg-slate900/40 border border-gray-800/50 backdrop-blur-sm">
-                    <span class="block font-serif text-3xl font-bold text-amber-500 mb-1">12+</span>
-                    <span class="text-xs text-gray-400 uppercase tracking-wider">Years Culinary Experience</span>
-                </div>
-                <div class="p-4 rounded-2xl bg-slate900/40 border border-gray-800/50 backdrop-blur-sm">
-                    <span class="block font-serif text-3xl font-bold text-amber-500 mb-1">100%</span>
-                    <span class="text-xs text-gray-400 uppercase tracking-wider">HACCP & Hygiene Compliance</span>
-                </div>
-                <div class="p-4 rounded-2xl bg-slate900/40 border border-gray-800/50 backdrop-blur-sm">
-                    <span class="block font-serif text-3xl font-bold text-amber-500 mb-1">500+</span>
-                    <span class="text-xs text-gray-400 uppercase tracking-wider">High-Volume Event Catering</span>
-                </div>
-                <div class="p-4 rounded-2xl bg-slate900/40 border border-gray-800/50 backdrop-blur-sm">
-                    <span class="block font-serif text-3xl font-bold text-amber-500 mb-1">5★</span>
-                    <span class="text-xs text-gray-400 uppercase tracking-wider">Fine Dining Standard</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="py-24 bg-slate900/60 relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                <!-- Chef Portrait Image -->
-                <div class="lg:col-span-5 relative">
-                    <div class="relative rounded-2xl overflow-hidden border border-gray-800 shadow-2xl group">
-                        <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?q=80&w=1000&auto=format&fit=crop" alt="Executive Chef Mustafa Mohammed Syed" class="w-full h-[500px] object-cover group-hover:scale-105 transition-transform duration-700">
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate950 via-transparent to-transparent opacity-80"></div>
-                        <div class="absolute bottom-6 left-6 right-6 p-6 rounded-xl bg-slate950/80 backdrop-blur-md border border-gray-800">
-                            <span class="text-amber-500 text-xs font-semibold tracking-widest uppercase block mb-1">Philosophy</span>
-                            <p class="text-sm font-serif italic text-gray-200">"Precision in technique, respect for seasonal ingredients, and uncompromising leadership in the brigade."</p>
-                        </div>
-                    </div>
-                    <!-- Decorative element -->
-                    <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-amber-600/10 rounded-full blur-2xl -z-10"></div>
-                </div>
-
-                <!-- Bio Content -->
-                <div class="lg:col-span-7 space-y-6">
-                    <div class="inline-flex items-center space-x-2 text-amber-500 text-sm font-semibold uppercase tracking-widest">
-                        <i class="fa-solid fa-hat-chef"></i>
-                        <span>About The Chef</span>
-                    </div>
-                    <h2 class="text-3xl sm:text-4xl font-bold text-white leading-tight">
-                        Mastering the Delicate Balance Between Tradition & Modern Innovation
-                    </h2>
-                    <p class="text-gray-300 leading-relaxed font-light text-base sm:text-lg">
-                        I am <strong class="text-white font-medium">Mustafa Mohammed Syed</strong>, a dedicated professional chef with a lifelong passion for high-end gastronomy, meticulous kitchen management, and creative flavor profiling. My career is defined by high standards of kitchen hygiene, team mentorship, and flawless execution during high-pressure service.
-                    </p>
-                    <p class="text-gray-400 leading-relaxed font-light text-sm sm:text-base">
-                        Whether engineering seasonal tasting menus, managing complex inventory systems to minimize food waste, or executing large-scale banquet catering for hundreds of guests, I treat every plate as a canvas and every service as a synchronized performance.
-                    </p>
-
-                    <!-- Core Competencies Grid -->
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
-                        <div class="p-4 rounded-xl bg-slate950 border border-gray-800/80 flex items-start space-x-3">
-                            <div class="w-8 h-8 rounded-lg bg-amber-500/10 text-amber-500 flex items-center justify-center flex-shrink-0 mt-1">
-                                <i class="fa-solid fa-fire-burner text-sm"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-white font-semibold text-sm mb-1">Advanced Culinary Tech</h4>
-                                <p class="text-gray-400 text-xs">Sous-vide, precise reductions, modern plating, and flavor balancing.</p>
-                            </div>
-                        </div>
-
-                        <div class="p-4 rounded-xl bg-slate950 border border-gray-800/80 flex items-start space-x-3">
-                            <div class="w-8 h-8 rounded-lg bg-amber-500/10 text-amber-500 flex items-center justify-center flex-shrink-0 mt-1">
-                                <i class="fa-solid fa-clipboard-check text-sm"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-white font-semibold text-sm mb-1">Kitchen Operations</h4>
-                                <p class="text-gray-400 text-xs">HACCP compliance, staff scheduling, inventory control, & cost management.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Signature Dishes & Plating Gallery -->
-    <section id="gallery" class="py-24 relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="text-amber-500 text-xs font-semibold uppercase tracking-widest block mb-2">Visual Portfolio</span>
-                <h2 class="text-3xl sm:text-5xl font-bold text-white mb-4">Signature Dishes & Plating</h2>
-                <p class="text-gray-400 text-sm sm:text-base">Explore select culinary creations highlighting color theory, precise textures, and sophisticated flavor pairings.</p>
-                
-                <!-- Filter Tabs -->
-                <div class="flex flex-wrap items-center justify-center gap-2 mt-8">
-                    <button class="filter-btn active px-5 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all bg-amber-600 text-white shadow-md shadow-amber-600/30" data-filter="all">All Dishes</button>
-                    <button class="filter-btn px-5 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all bg-slate900 hover:bg-slate800 text-gray-300 border border-gray-800" data-filter="fine-dining">Fine Dining</button>
-                    <button class="filter-btn px-5 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all bg-slate900 hover:bg-slate800 text-gray-300 border border-gray-800" data-filter="plated">Artisanal Plating</button>
-                    <button class="filter-btn px-5 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all bg-slate900 hover:bg-slate800 text-gray-300 border border-gray-800" data-filter="catering">High-Volume / Catering</button>
-                </div>
-            </div>
-
-            <!-- Gallery Grid -->
-            <div id="gallery-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                
-                <!-- Item 1 -->
-                <div class="gallery-item group rounded-2xl overflow-hidden bg-slate900 border border-gray-800/80 shadow-xl transition-all duration-300 hover:-translate-y-1 hover:border-amber-500/50" data-category="fine-dining">
-                    <div class="relative h-64 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=800&auto=format&fit=crop" alt="Pan-Seared Duck Breast" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate950 via-transparent to-transparent opacity-60"></div>
-                        <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-slate950/80 backdrop-blur-md text-amber-400 text-xs font-semibold border border-gray-800">Fine Dining</span>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="font-serif text-xl font-bold text-white mb-2">Pan-Seared Spice-Crusted Duck Breast</h3>
-                        <p class="text-gray-400 text-xs sm:text-sm leading-relaxed mb-4">Served with blackberry juniper reduction, parsnip silk puree, and glazed heirloom baby carrots.</p>
-                        <div class="flex items-center justify-between pt-4 border-t border-gray-800 text-xs text-gray-400">
-                            <span><i class="fa-solid fa-temperature-high text-amber-500 mr-1"></i> Sous-vide & Sear</span>
-                            <button onclick="openModal('Pan-Seared Spice-Crusted Duck Breast', 'Served with blackberry juniper reduction, parsnip silk puree, and glazed heirloom baby carrots.', 'https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=800&auto=format&fit=crop', 'Duck breast cooked precisely via sous-vide to 56°C, finished in cast iron with rosemary butter basting. Paired with an acid-balanced blackberry juniper reduction to cut richness.')" class="text-amber-500 hover:text-amber-400 font-semibold flex items-center space-x-1">
-                                <span>Details</span>
-                                <i class="fa-solid fa-arrow-right text-[10px]"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Item 2 -->
-                <div class="gallery-item group rounded-2xl overflow-hidden bg-slate900 border border-gray-800/80 shadow-xl transition-all duration-300 hover:-translate-y-1 hover:border-amber-500/50" data-category="plated">
-                    <div class="relative h-64 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?q=80&w=800&auto=format&fit=crop" alt="Pan-Roasted Chilean Sea Bass" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate950 via-transparent to-transparent opacity-60"></div>
-                        <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-slate950/80 backdrop-blur-md text-amber-400 text-xs font-semibold border border-gray-800">Artisanal Plating</span>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="font-serif text-xl font-bold text-white mb-2">Miso-Glazed Chilean Sea Bass</h3>
-                        <p class="text-gray-400 text-xs sm:text-sm leading-relaxed mb-4">Dashi-infused edamame purée, pickled lotus root chips, and crispy ginger oil drizzle.</p>
-                        <div class="flex items-center justify-between pt-4 border-t border-gray-800 text-xs text-gray-400">
-                            <span><i class="fa-solid fa-fish text-amber-500 mr-1"></i> Delicate Seafood</span>
-                            <button onclick="openModal('Miso-Glazed Chilean Sea Bass', 'Dashi-infused edamame purée, pickled lotus root chips, and crispy ginger oil drizzle.', 'https://images.unsplash.com/photo-1551024709-8f23befc6f87?q=80&w=800&auto=format&fit=crop', 'Marinated for 48 hours in sweet white miso and mirin blend. Caramelized under salamander for a glossy, flaky exterior sitting on velvety dashi edamame cream.')" class="text-amber-500 hover:text-amber-400 font-semibold flex items-center space-x-1">
-                                <span>Details</span>
-                                <i class="fa-solid fa-arrow-right text-[10px]"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Item 3 -->
-                <div class="gallery-item group rounded-2xl overflow-hidden bg-slate900 border border-gray-800/80 shadow-xl transition-all duration-300 hover:-translate-y-1 hover:border-amber-500/50" data-category="fine-dining">
-                    <div class="relative h-64 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=800&auto=format&fit=crop" alt="Wagyu Beef Tenderloin" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate950 via-transparent to-transparent opacity-60"></div>
-                        <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-slate950/80 backdrop-blur-md text-amber-400 text-xs font-semibold border border-gray-800">Fine Dining</span>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="font-serif text-xl font-bold text-white mb-2">A5 Wagyu Beef Tenderloin</h3>
-                        <p class="text-gray-400 text-xs sm:text-sm leading-relaxed mb-4">Truffle potato fondant, roasted wild chanterelles, and aged Madeira bone marrow jus.</p>
-                        <div class="flex items-center justify-between pt-4 border-t border-gray-800 text-xs text-gray-400">
-                            <span><i class="fa-solid fa-fire text-amber-500 mr-1"></i> Premium Beef</span>
-                            <button onclick="openModal('A5 Wagyu Beef Tenderloin', 'Truffle potato fondant, roasted wild chanterelles, and aged Madeira bone marrow jus.', 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=800&auto=format&fit=crop', 'Featuring exquisite marbling. Seared precisely to medium-rare, accompanied by layered fondant potatoes infused with black winter truffle oil and a 24-hour reduced Madeira jus.')" class="text-amber-500 hover:text-amber-400 font-semibold flex items-center space-x-1">
-                                <span>Details</span>
-                                <i class="fa-solid fa-arrow-right text-[10px]"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Item 4 -->
-                <div class="gallery-item group rounded-2xl overflow-hidden bg-slate900 border border-gray-800/80 shadow-xl transition-all duration-300 hover:-translate-y-1 hover:border-amber-500/50" data-category="plated">
-                    <div class="relative h-64 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=800&auto=format&fit=crop" alt="Artisanal Gourmet Pizza" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate950 via-transparent to-transparent opacity-60"></div>
-                        <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-slate950/80 backdrop-blur-md text-amber-400 text-xs font-semibold border border-gray-800">Artisanal Plating</span>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="font-serif text-xl font-bold text-white mb-2">Wild Mushroom & Truffle Flatbread</h3>
-                        <p class="text-gray-400 text-xs sm:text-sm leading-relaxed mb-4">Hand-stretched fermented dough, fior di latte, roasted porcini, and fresh shaved truffle.</p>
-                        <div class="flex items-center justify-between pt-4 border-t border-gray-800 text-xs text-gray-400">
-                            <span><i class="fa-solid fa-wheat-awn text-amber-500 mr-1"></i> Artisan Dough</span>
-                            <button onclick="openModal('Wild Mushroom & Truffle Flatbread', 'Hand-stretched fermented dough, fior di latte, roasted porcini, and fresh shaved truffle.', 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=800&auto=format&fit=crop', 'Crafted with a 72-hour cold fermented sourdough base. Topped with earthy porcini mushrooms, creamy fior di latte mozzarella, and finished with fresh truffle shavings.')" class="text-amber-500 hover:text-amber-400 font-semibold flex items-center space-x-1">
-                                <span>Details</span>
-                                <i class="fa-solid fa-arrow-right text-[10px]"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Item 5 -->
-                <div class="gallery-item group rounded-2xl overflow-hidden bg-slate900 border border-gray-800/80 shadow-xl transition-all duration-300 hover:-translate-y-1 hover:border-amber-500/50" data-category="catering">
-                    <div class="relative h-64 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1555244162-803834f70033?q=80&w=800&auto=format&fit=crop" alt="Banquet Catering Spread" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate950 via-transparent to-transparent opacity-60"></div>
-                        <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-slate950/80 backdrop-blur-md text-amber-400 text-xs font-semibold border border-gray-800">Catering & Banquet</span>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="font-serif text-xl font-bold text-white mb-2">Executive Gala Banquet Platter</h3>
-                        <p class="text-gray-400 text-xs sm:text-sm leading-relaxed mb-4">Scaled multi-course presentation designed for high-volume 300+ guest corporate banquets.</p>
-                        <div class="flex items-center justify-between pt-4 border-t border-gray-800 text-xs text-gray-400">
-                            <span><i class="fa-solid fa-users text-amber-500 mr-1"></i> High-Volume Ops</span>
-                            <button onclick="openModal('Executive Gala Banquet Platter', 'Scaled multi-course presentation designed for high-volume 300+ guest corporate banquets.', 'https://images.unsplash.com/photo-1555244162-803834f70033?q=80&w=800&auto=format&fit=crop', 'Demonstrating large-scale precision execution. Prepared with synchronized kitchen brigade timelines to ensure every plate leaves the pass at optimal temperature and pristine presentation.')" class="text-amber-500 hover:text-amber-400 font-semibold flex items-center space-x-1">
-                                <span>Details</span>
-                                <i class="fa-solid fa-arrow-right text-[10px]"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Item 6 -->
-                <div class="gallery-item group rounded-2xl overflow-hidden bg-slate900 border border-gray-800/80 shadow-xl transition-all duration-300 hover:-translate-y-1 hover:border-amber-500/50" data-category="plated">
-                    <div class="relative h-64 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=800&auto=format&fit=crop" alt="Gourmet Dessert" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate950 via-transparent to-transparent opacity-60"></div>
-                        <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-slate950/80 backdrop-blur-md text-amber-400 text-xs font-semibold border border-gray-800">Artisanal Plating</span>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="font-serif text-xl font-bold text-white mb-2">Dark Chocolate Valrhona Sphere</h3>
-                        <p class="text-gray-400 text-xs sm:text-sm leading-relaxed mb-4">Warm passion fruit caramel melt, gold leaf dusting, and hazelnut crumble base.</p>
-                        <div class="flex items-center justify-between pt-4 border-t border-gray-800 text-xs text-gray-400">
-                            <span><i class="fa-solid fa-cake-candles text-amber-500 mr-1"></i> Pastry Artistry</span>
-                            <button onclick="openModal('Dark Chocolate Valrhona Sphere', 'Warm passion fruit caramel melt, gold leaf dusting, and hazelnut crumble base.', 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=800&auto=format&fit=crop', 'An interactive dessert experience. A tempered Valrhona chocolate sphere melts upon table-side pouring of hot passion fruit caramel, revealing a light pistachio sponge center.')" class="text-amber-500 hover:text-amber-400 font-semibold flex items-center space-x-1">
-                                <span>Details</span>
-                                <i class="fa-solid fa-arrow-right text-[10px]"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Menu Engineering & Concept Section -->
-    <section id="menus" class="py-24 bg-slate900/60 relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="text-amber-500 text-xs font-semibold uppercase tracking-widest block mb-2">Strategy & Design</span>
-                <h2 class="text-3xl sm:text-5xl font-bold text-white mb-4">Menu Engineering & Concepts</h2>
-                <p class="text-gray-400 text-sm sm:text-base">Strategic seasonal menu curation balancing food cost percentages (COGS), profitability, and exceptional guest satisfaction.</p>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                
-                <!-- Menu Card 1 -->
-                <div class="p-8 rounded-3xl bg-slate950 border border-gray-800/80 shadow-2xl relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-amber-600/5 rounded-full blur-2xl"></div>
-                    <div class="flex items-center justify-between mb-6 pb-6 border-b border-gray-800">
-                        <div>
-                            <span class="text-amber-500 text-xs font-semibold uppercase tracking-widest block mb-1">Seasonal Tasting</span>
-                            <h3 class="font-serif text-2xl font-bold text-white">Autumn Harvest 5-Course Tasting</h3>
-                        </div>
-                        <div class="w-12 h-12 rounded-2xl bg-amber-500/10 text-amber-500 flex items-center justify-center font-bold">
-                            01
-                        </div>
-                    </div>
-
-                    <div class="space-y-6">
-                        <div class="space-y-4">
-                            <div class="flex justify-between items-start">
-                                <div>
-                                    <h4 class="text-white font-semibold text-sm">Amuse-Bouche</h4>
-                                    <p class="text-gray-400 text-xs">Smoked celeriac foam, roasted hazelnut oil, crispy shallot.</p>
-                                </div>
-                                <span class="text-amber-500 text-xs font-mono">Course I</span>
-                            </div>
-                            <div class="flex justify-between items-start">
-                                <div>
-                                    <h4 class="text-white font-semibold text-sm">Pan-Seared Scallop</h4>
-                                    <p class="text-gray-400 text-xs">Sunchoke purée, pickled chanterelles, pancetta crisp.</p>
-                                </div>
-                                <span class="text-amber-500 text-xs font-mono">Course II</span>
-                            </div>
-                            <div class="flex justify-between items-start">
-                                <div>
-                                    <h4 class="text-white font-semibold text-sm">Duck Breast & Blackberry</h4>
-                                    <p class="text-gray-400 text-xs">Juniper reduction, parsnip silk, heirloom baby carrots.</p>
-                                </div>
-                                <span class="text-amber-500 text-xs font-mono">Course III</span>
-                            </div>
-                            <div class="flex justify-between items-start">
-                                <div>
-                                    <h4 class="text-white font-semibold text-sm">Aged Gouda Course</h4>
-                                    <p class="text-gray-400 text-xs">Fig chutney, walnut sourdough crisp, acacia honey drizzle.</p>
-                                </div>
-                                <span class="text-amber-500 text-xs font-mono">Course IV</span>
-                            </div>
-                            <div class="flex justify-between items-start">
-                                <div>
-                                    <h4 class="text-white font-semibold text-sm">Valrhona Sphere Dessert</h4>
-                                    <p class="text-gray-400 text-xs">Passion fruit caramel melt, hazelnut crumble.</p>
-                                </div>
-                                <span class="text-amber-500 text-xs font-mono">Course V</span>
-                            </div>
-                        </div>
-
-                        <div class="pt-6 border-t border-gray-800 flex items-center justify-between text-xs text-gray-400">
-                            <span>Target Food Cost: <strong class="text-amber-400 font-semibold">27%</strong></span>
-                            <span>Avg Check Contribution: <strong class="text-white font-semibold">$145 / guest</strong></span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Menu Card 2 -->
-                <div class="p-8 rounded-3xl bg-slate950 border border-gray-800/80 shadow-2xl relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-amber-600/5 rounded-full blur-2xl"></div>
-                    <div class="flex items-center justify-between mb-6 pb-6 border-b border-gray-800">
-                        <div>
-                            <span class="text-amber-500 text-xs font-semibold uppercase tracking-widest block mb-1">High-Volume Catering</span>
-                            <h3 class="font-serif text-2xl font-bold text-white">Corporate Gala Banquet Menu</h3>
-                        </div>
-                        <div class="w-12 h-12 rounded-2xl bg-amber-500/10 text-amber-500 flex items-center justify-center font-bold">
-                            02
-                        </div>
-                    </div>
-
-                    <div class="space-y-6">
-                        <div class="space-y-4">
-                            <div class="flex justify-between items-start">
-                                <div>
-                                    <h4 class="text-white font-semibold text-sm">Canapés & Welcome Bites</h4>
-                                    <p class="text-gray-400 text-xs">Truffled mushroom arancini, cured salmon crostini with dill cream.</p>
-                                </div>
-                                <span class="text-amber-500 text-xs font-mono">Reception</span>
-                            </div>
-                            <div class="flex justify-between items-start">
-                                <div>
-                                    <h4 class="text-white font-semibold text-sm">Starter Salad</h4>
-                                    <p class="text-gray-400 text-xs">Compressed heirloom beets, goat cheese snow, candied pecans, sherry vinaigrette.</p>
-                                </div>
-                                <span class="text-amber-500 text-xs font-mono">Starter</span>
-                            </div>
-                            <div class="flex justify-between items-start">
-                                <div>
-                                    <h4 class="text-white font-semibold text-sm">Dual Entrée Option</h4>
-                                    <p class="text-gray-400 text-xs">Slow-braised beef short rib & herb-crusted sea bass with potato gratin.</p>
-                                </div>
-                                <span class="text-amber-500 text-xs font-mono">Entrée</span>
-                            </div>
-                            <div class="flex justify-between items-start">
-                                <div>
-                                    <h4 class="text-white font-semibold text-sm">Grand Dessert Station</h4>
-                                    <p class="text-gray-400 text-xs">Miniature French pastries, fruit tarts, and artisanal coffee service.</p>
-                                </div>
-                                <span class="text-amber-500 text-xs font-mono">Finale</span>
-                            </div>
-                        </div>
-
-                        <div class="pt-6 border-t border-gray-800 flex items-center justify-between text-xs text-gray-400">
-                            <span>Capacity Scalability: <strong class="text-amber-400 font-semibold">Up to 600 Guests</strong></span>
-                            <span>Efficiency Rating: <strong class="text-white font-semibold">99.4% On-Time Pass</strong></span>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Kitchen Management & Standards Section -->
-    <section id="standards" class="py-24 relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="text-amber-500 text-xs font-semibold uppercase tracking-widest block mb-2">Operational Rigor</span>
-                <h2 class="text-3xl sm:text-5xl font-bold text-white mb-4">Kitchen Management & Standards</h2>
-                <p class="text-gray-400 text-sm sm:text-base">Culinary artistry requires disciplined operations. Here is how I maintain safety, consistency, and peak brigade performance.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                
-                <!-- Card 1 -->
-                <div class="p-8 rounded-2xl bg-slate900 border border-gray-800/80 shadow-xl relative group hover:border-amber-500/50 transition-all">
-                    <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-500 flex items-center justify-center text-xl mb-6 group-hover:scale-110 transition-transform">
-                        <i class="fa-solid fa-shield-halved"></i>
-                    </div>
-                    <h3 class="font-serif text-xl font-bold text-white mb-3">HACCP & Food Safety</h3>
-                    <p class="text-gray-400 text-xs sm:text-sm leading-relaxed mb-4">
-                        Rigorous adherence to temperature logs, FIFO inventory rotation, allergen separation protocols, and immaculate sanitation standards across all prep stations.
-                    </p>
-                    <ul class="space-y-2 text-xs text-gray-300">
-                        <li class="flex items-center space-x-2"><i class="fa-solid fa-check text-amber-500"></i><span>Daily temperature and cooling logs</span></li>
-                        <li class="flex items-center space-x-2"><i class="fa-solid fa-check text-amber-500"></i><span>Strict cross-contamination prevention</span></li>
-                        <li class="flex items-center space-x-2"><i class="fa-solid fa-check text-amber-500"></i><span>Allergen matrix compliance</span></li>
-                    </ul>
-                </div>
-
-                <!-- Card 2 -->
-                <div class="p-8 rounded-2xl bg-slate900 border border-gray-800/80 shadow-xl relative group hover:border-amber-500/50 transition-all">
-                    <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-500 flex items-center justify-center text-xl mb-6 group-hover:scale-110 transition-transform">
-                        <i class="fa-solid fa-boxes-stacked"></i>
-                    </div>
-                    <h3 class="font-serif text-xl font-bold text-white mb-3">Inventory & Waste Control</h3>
-                    <p class="text-gray-400 text-xs sm:text-sm leading-relaxed mb-4">
-                        Optimizing yield management and utilizing root-to-stem culinary techniques to minimize food waste while maximizing ingredient profitability.
-                    </p>
-                    <ul class="space-y-2 text-xs text-gray-300">
-                        <li class="flex items-center space-x-2"><i class="fa-solid fa-check text-amber-500"></i><span>Weekly stocktaking & variance audits</span></li>
-                        <li class="flex items-center space-x-2"><i class="fa-solid fa-check text-amber-500"></i><span>Recipe costing & yield tracking</span></li>
-                        <li class="flex items-center space-x-2"><i class="fa-solid fa-check text-amber-500"></i><span>Sustainable trimmings utilization</span></li>
-                    </ul>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="p-8 rounded-2xl bg-slate900 border border-gray-800/80 shadow-xl relative group hover:border-amber-500/50 transition-all">
-                    <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-500 flex items-center justify-center text-xl mb-6 group-hover:scale-110 transition-transform">
-                        <i class="fa-solid fa-people-group"></i>
-                    </div>
-                    <h3 class="font-serif text-xl font-bold text-white mb-3">Brigade Leadership</h3>
-                    <p class="text-gray-400 text-xs sm:text-sm leading-relaxed mb-4">
-                        Mentoring line cooks, delegating station responsibilities efficiently, and maintaining calm, focused communication during peak service rushes.
-                    </p>
-                    <ul class="space-y-2 text-xs text-gray-300">
-                        <li class="flex items-center space-x-2"><i class="fa-solid fa-check text-amber-500"></i><span>Pre-service briefings & tastings</span></li>
-                        <li class="flex items-center space-x-2"><i class="fa-solid fa-check text-amber-500"></i><span>Skill development & knife training</span></li>
-                        <li class="flex items-center space-x-2"><i class="fa-solid fa-check text-amber-500"></i><span>Calm, authoritative pass management</span></li>
-                    </ul>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Resume & Experience Timeline Section -->
-    <section id="resume" class="py-24 bg-slate900/60 relative">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="text-amber-500 text-xs font-semibold uppercase tracking-widest block mb-2">Professional Path</span>
-                <h2 class="text-3xl sm:text-5xl font-bold text-white mb-4">Culinary Experience & Resume</h2>
-                <p class="text-gray-400 text-sm sm:text-base">A timeline of leadership roles, high-end kitchen management, and culinary achievements.</p>
-            </div>
-
-            <div class="relative border-l border-gray-800 ml-4 sm:ml-8 space-y-12">
-                
-                <!-- Timeline Item 1 -->
-                <div class="relative pl-8 sm:pl-12">
-                    <div class="absolute -left-[17px] top-1.5 w-8 h-8 rounded-full bg-slate950 border-2 border-amber-600 flex items-center justify-center text-amber-500 text-xs">
-                        <i class="fa-solid fa-briefcase"></i>
-                    </div>
-                    <div class="p-6 sm:p-8 rounded-2xl bg-slate950 border border-gray-800/80 shadow-xl">
-                        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-4">
-                            <div>
-                                <h3 class="font-serif text-xl font-bold text-white">Head Chef / Köksmästare</h3>
-                                <span class="text-amber-500 text-sm font-medium">L'Étoile Fine Dining & Events</span>
-                            </div>
-                            <span class="mt-2 sm:mt-0 px-3 py-1 rounded-full bg-amber-500/10 text-amber-400 text-xs font-semibold border border-amber-500/20 w-max">2021 – Present</span>
-                        </div>
-                        <p class="text-gray-300 text-sm leading-relaxed mb-4">
-                            Directing all culinary operations for a high-end establishment. Managing a kitchen brigade of 12 chefs, engineering quarterly seasonal menus, maintaining stringent HACCP compliance, and successfully reducing overall food cost by 4.5% through precision butchery and waste reduction.
-                        </p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-2.5 py-1 rounded-md bg-slate900 text-gray-300 text-xs border border-gray-800">Menu Engineering</span>
-                            <span class="px-2.5 py-1 rounded-md bg-slate900 text-gray-300 text-xs border border-gray-800">Brigade Leadership</span>
-                            <span class="px-2.5 py-1 rounded-md bg-slate900 text-gray-300 text-xs border border-gray-800">HACCP</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Timeline Item 2 -->
-                <div class="relative pl-8 sm:pl-12">
-                    <div class="absolute -left-[17px] top-1.5 w-8 h-8 rounded-full bg-slate950 border-2 border-amber-600 flex items-center justify-center text-amber-500 text-xs">
-                        <i class="fa-solid fa-briefcase"></i>
-                    </div>
-                    <div class="p-6 sm:p-8 rounded-2xl bg-slate950 border border-gray-800/80 shadow-xl">
-                        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-4">
-                            <div>
-                                <h3 class="font-serif text-xl font-bold text-white">Sous Chef & Banquet Lead</h3>
-                                <span class="text-amber-500 text-sm font-medium">Grand Horizon Hotel & Banquets</span>
-                            </div>
-                            <span class="mt-2 sm:mt-0 px-3 py-1 rounded-full bg-amber-500/10 text-amber-400 text-xs font-semibold border border-amber-500/20 w-max">2017 – 2021</span>
-                        </div>
-                        <p class="text-gray-300 text-sm leading-relaxed mb-4">
-                            Supervised daily hot line and banqueting service for up to 500 guests. Coordinated prep schedules, trained junior apprentices in classical French techniques, and collaborated closely with the Food & Beverage Director on private event tastings.
-                        </p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-2.5 py-1 rounded-md bg-slate900 text-gray-300 text-xs border border-gray-800">Banquet Operations</span>
-                            <span class="px-2.5 py-1 rounded-md bg-slate900 text-gray-300 text-xs border border-gray-800">Sauce Station</span>
-                            <span class="px-2.5 py-1 rounded-md bg-slate900 text-gray-300 text-xs border border-gray-800">Staff Training</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Timeline Item 3 -->
-                <div class="relative pl-8 sm:pl-12">
-                    <div class="absolute -left-[17px] top-1.5 w-8 h-8 rounded-full bg-slate950 border-2 border-amber-600 flex items-center justify-center text-amber-500 text-xs">
-                        <i class="fa-solid fa-graduation-cap"></i>
-                    </div>
-                    <div class="p-6 sm:p-8 rounded-2xl bg-slate950 border border-gray-800/80 shadow-xl">
-                        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-4">
-                            <div>
-                                <h3 class="font-serif text-xl font-bold text-white">Advanced Culinary Arts Diploma</h3>
-                                <span class="text-amber-500 text-sm font-medium">Culinary Institute of Professional Gastronomy</span>
-                            </div>
-                            <span class="mt-2 sm:mt-0 px-3 py-1 rounded-full bg-amber-500/10 text-amber-400 text-xs font-semibold border border-amber-500/20 w-max">2015 – 2017</span>
-                        </div>
-                        <p class="text-gray-300 text-sm leading-relaxed mb-4">
-                            Comprehensive training covering classical French mother sauces, pastry arts, butchery, food science, and international cuisine standards with honors distinction.
-                        </p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-2.5 py-1 rounded-md bg-slate900 text-gray-300 text-xs border border-gray-800">Food Safety Certified</span>
-                            <span class="px-2.5 py-1 rounded-md bg-slate900 text-gray-300 text-xs border border-gray-800">Classical Techniques</span>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- Download CV Button -->
-            <div class="text-center mt-12">
-                <button onclick="downloadResume()" class="px-8 py-4 rounded-xl bg-amber-600 hover:bg-amber-500 text-white font-semibold shadow-lg shadow-amber-600/30 transition-all inline-flex items-center space-x-3">
-                    <i class="fa-solid fa-download"></i>
-                    <span>Download Full Resume (PDF)</span>
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-24 relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                
-                <!-- Info Column -->
-                <div class="lg:col-span-5 space-y-6">
-                    <span class="text-amber-500 text-xs font-semibold uppercase tracking-widest block">Get In Touch</span>
-                    <h2 class="text-3xl sm:text-5xl font-bold text-white">Let’s Discuss Culinary Opportunities</h2>
-                    <p class="text-gray-400 text-sm sm:text-base leading-relaxed">
-                        Whether you are seeking an experienced Executive Chef for a high-end restaurant, private dining consultancy, or grand catering management, I would love to connect.
-                    </p>
-
-                    <div class="space-y-4 pt-4">
-                        <div class="flex items-center space-x-4 p-4 rounded-2xl bg-slate900 border border-gray-800/80">
-                            <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-500 flex items-center justify-center text-lg flex-shrink-0">
-                                <i class="fa-solid fa-envelope"></i>
-                            </div>
-                            <div>
-                                <span class="text-xs text-gray-400 block">Email Address</span>
-                                <a href="mailto:chef.mustafa@culinarymaster.com" class="text-white font-semibold hover:text-amber-500 transition-colors text-sm sm:text-base">chef.mustafa@culinarymaster.com</a>
-                            </div>
-                        </div>
-
-                        <div class="flex items-center space-x-4 p-4 rounded-2xl bg-slate900 border border-gray-800/80">
-                            <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-500 flex items-center justify-center text-lg flex-shrink-0">
-                                <i class="fa-solid fa-phone"></i>
-                            </div>
-                            <div>
-                                <span class="text-xs text-gray-400 block">Phone Number</span>
-                                <a href="tel:+46700000000" class="text-white font-semibold hover:text-amber-500 transition-colors text-sm sm:text-base">+46 70 000 00 00</a>
-                            </div>
-                        </div>
-
-                        <div class="flex items-center space-x-4 p-4 rounded-2xl bg-slate900 border border-gray-800/80">
-                            <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-500 flex items-center justify-center text-lg flex-shrink-0">
-                                <i class="fa-solid fa-location-dot"></i>
-                            </div>
-                            <div>
-                                <span class="text-xs text-gray-400 block">Location / Availability</span>
-                                <span class="text-white font-semibold text-sm sm:text-base">Stockholm, Sweden & International Relocation</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Contact Form -->
-                <div class="lg:col-span-7">
-                    <form id="contact-form" onsubmit="handleFormSubmit(event)" class="p-8 sm:p-10 rounded-3xl bg-slate900 border border-gray-800/80 shadow-2xl space-y-6">
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                            <div>
-                                <label class="block text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2">Your Name</label>
-                                <input type="text" id="name" required placeholder="John Doe" class="w-full px-4 py-3.5 rounded-xl bg-slate950 border border-gray-800 text-white placeholder-gray-600 focus:outline-none focus:border-amber-500 transition-colors text-sm">
-                            </div>
-                            <div>
-                                <label class="block text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2">Your Email</label>
-                                <input type="email" id="email" required placeholder="john@example.com" class="w-full px-4 py-3.5 rounded-xl bg-slate950 border border-gray-800 text-white placeholder-gray-600 focus:outline-none focus:border-amber-500 transition-colors text-sm">
-                            </div>
-                        </div>
-
-                        <div>
-                            <label class="block text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2">Subject / Inquiry Type</label>
-                            <select id="subject" class="w-full px-4 py-3.5 rounded-xl bg-slate950 border border-gray-800 text-white focus:outline-none focus:border-amber-500 transition-colors text-sm">
-                                <option value="Executive Chef Position">Executive Chef / Köksmästare Role</option>
-                                <option value="Private Catering">Private Dining & Event Catering</option>
-                                <option value="Kitchen Consultancy">Kitchen Operations Consultancy</option>
-                                <option value="Other">Other Inquiry</option>
-                            </select>
-                        </div>
-
-                        <div>
-                            <label class="block text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2">Your Message</label>
-                            <textarea id="message" rows="5" required placeholder="Tell me about your restaurant, event, or culinary project..." class="w-full px-4 py-3.5 rounded-xl bg-slate950 border border-gray-800 text-white placeholder-gray-600 focus:outline-none focus:border-amber-500 transition-colors text-sm resize-none"></textarea>
-                        </div>
-
-                        <button type="submit" class="w-full py-4 rounded-xl bg-amber-600 hover:bg-amber-500 text-white font-semibold shadow-lg shadow-amber-600/30 transition-all flex items-center justify-center space-x-2">
-                            <span>Send Message to Chef</span>
-                            <i class="fa-solid fa-paper-plane text-xs"></i>
-                        </button>
-                    </form>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="py-12 bg-slate950 border-t border-gray-900 text-center text-gray-500 text-xs sm:text-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p>&copy; 2026 Mustafa Mohammed Syed. All rights reserved. Professional Chef & Kitchen Master.</p>
-            <div class="flex space-x-6">
-                <a href="#hero" class="hover:text-amber-500 transition-colors">Back to Top <i class="fa-solid fa-arrow-up ml-1"></i></a>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Interactive Image Modal / Lightbox -->
-    <div id="dish-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate950/90 backdrop-blur-md">
-        <div class="relative max-w-2xl w-full bg-slate900 rounded-3xl border border-gray-800 overflow-hidden shadow-2xl animate-in fade-in zoom-in duration-300">
-            <button onclick="closeModal()" class="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-slate950/80 text-white flex items-center justify-center hover:bg-amber-600 transition-colors">
-                <i class="fa-solid fa-xmark text-lg"></i>
-            </button>
-            <div class="h-72 overflow-hidden relative">
-                <img id="modal-img" src="" alt="Dish Detail" class="w-full h-full object-cover">
-                <div class="absolute inset-0 bg-gradient-to-t from-slate900 via-transparent to-transparent"></div>
-            </div>
-            <div class="p-8 space-y-4">
-                <h3 id="modal-title" class="font-serif text-2xl sm:text-3xl font-bold text-white"></h3>
-                <p id="modal-desc" class="text-gray-300 text-sm leading-relaxed"></p>
-                <div class="pt-4 border-t border-gray-800">
-                    <h4 class="text-amber-500 text-xs font-semibold uppercase tracking-wider mb-1">Technique & Flavor Notes</h4>
-                    <p id="modal-tech" class="text-gray-400 text-xs sm:text-sm leading-relaxed italic"></p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Custom Notification Box (Replacing alert) -->
-    <div id="notification-box" class="fixed bottom-6 right-6 z-50 hidden transform translate-y-10 opacity-0 transition-all duration-300 bg-slate900 border border-amber-500/50 text-white px-6 py-4 rounded-2xl shadow-2xl flex items-center space-x-3">
-        <div class="w-8 h-8 rounded-full bg-amber-500/20 text-amber-500 flex items-center justify-center flex-shrink-0">
-            <i class="fa-solid fa-check text-sm"></i>
+<body>
+  <!-- Navigation -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-ink/85 backdrop-blur-md border-b border-white/10">
+    <div class="max-w-6xl mx-auto px-5 h-20 flex items-center justify-between">
+      <a href="#home" class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-full bg-gold/15 border border-gold/30 flex items-center justify-center text-gold">
+          <i class="fa-solid fa-utensils"></i>
         </div>
         <div>
-            <h4 class="font-semibold text-sm" id="notif-title">Success</h4>
-            <p class="text-xs text-gray-400" id="notif-desc">Your message has been sent to Chef Mustafa.</p>
+          <div class="serif text-lg text-white">Mustafa M. Syed</div>
+          <div class="text-[10px] uppercase tracking-[.22em] text-gold">Chef</div>
         </div>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-8 text-sm">
+        <a href="#about" class="text-stone-300 hover:text-gold">About</a>
+        <a href="#gallery" class="text-stone-300 hover:text-gold">My Food</a>
+        <a href="#career" class="text-stone-300 hover:text-gold">Career</a>
+        <a href="#contact" class="text-stone-300 hover:text-gold">Contact</a>
+      </nav>
+
+      <button id="menuBtn" class="md:hidden text-stone-200 text-xl" aria-label="Open menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
     </div>
 
-    <!-- JavaScript Functionality -->
-    <script>
-        // Mobile Menu Toggle
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
+    <div id="mobileMenu" class="hidden md:hidden border-t border-white/10 bg-ink px-5 py-5 space-y-4">
+      <a href="#about" class="block text-stone-300">About</a>
+      <a href="#gallery" class="block text-stone-300">My Food</a>
+      <a href="#career" class="block text-stone-300">Career</a>
+      <a href="#contact" class="block text-stone-300">Contact</a>
+    </div>
+  </header>
 
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
+  <!-- Hero -->
+  <section id="home" class="hero-bg min-h-[88vh] flex items-center pt-20">
+    <div class="max-w-6xl mx-auto w-full px-5 py-24">
+      <div class="max-w-2xl">
+        <p class="text-gold uppercase tracking-[.25em] text-xs font-semibold mb-5">Chef • Culinary Professional</p>
+        <h1 class="text-5xl sm:text-6xl md:text-7xl leading-[1.05] font-semibold text-white mb-6">
+          Mustafa Mohammed <span class="text-gold">Syed</span>
+        </h1>
+        <p class="text-xl sm:text-2xl text-stone-200 font-light leading-relaxed mb-8">
+          I create food with care, precision and a passion for bringing people together around the table.
+        </p>
+        <div class="flex flex-wrap gap-3">
+          <a href="#gallery" class="px-6 py-3.5 rounded-full bg-gold text-ink font-semibold hover:bg-amber-300 transition">
+            View My Food
+          </a>
+          <a href="#about" class="px-6 py-3.5 rounded-full border border-white/25 text-white hover:bg-white/10 transition">
+            About Me
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        // Close mobile menu when clicking a link
-        mobileMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        });
+  <!-- About -->
+  <section id="about" class="py-24 bg-stone-950">
+    <div class="max-w-6xl mx-auto px-5">
+      <div class="grid lg:grid-cols-5 gap-12 items-center">
+        <div class="lg:col-span-2">
+          <div class="rounded-2xl overflow-hidden border border-white/10">
+            <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?q=85&w=1000&auto=format&fit=crop"
+                 alt="Chef portrait placeholder"
+                 class="w-full aspect-[4/5] object-cover">
+          </div>
+        </div>
 
-        // Navbar Scroll Effect
-        window.addEventListener('scroll', () => {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('bg-slate950/95', 'shadow-xl');
-            } else {
-                navbar.classList.remove('bg-slate950/95', 'shadow-xl');
-            }
-        });
+        <div class="lg:col-span-3">
+          <p class="text-gold uppercase tracking-[.22em] text-xs font-semibold mb-3">A little about me</p>
+          <h2 class="text-4xl sm:text-5xl text-white mb-6">My story in the kitchen.</h2>
+          <p class="text-stone-300 text-lg leading-relaxed mb-5">
+            I am <strong class="text-white">Mustafa Mohammed Syed</strong>, a dedicated chef with a passion for
+            high-quality food, thoughtful presentation and professional kitchen standards.
+          </p>
+          <p class="text-stone-400 leading-relaxed mb-8">
+            My experience has taken me through fine dining, hotel banqueting and high-volume service.
+            I enjoy combining strong culinary technique with clean presentation, consistency and a calm approach
+            during busy service.
+          </p>
 
-        // Gallery Filtering
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const galleryItems = document.querySelectorAll('.gallery-item');
+          <div class="grid sm:grid-cols-3 gap-4">
+            <div class="p-5 rounded-xl bg-ink border border-white/10">
+              <div class="text-gold text-xl mb-2"><i class="fa-solid fa-fire-burner"></i></div>
+              <div class="text-white font-semibold">Culinary</div>
+              <div class="text-stone-500 text-sm mt-1">Fine dining & modern cuisine</div>
+            </div>
+            <div class="p-5 rounded-xl bg-ink border border-white/10">
+              <div class="text-gold text-xl mb-2"><i class="fa-solid fa-people-group"></i></div>
+              <div class="text-white font-semibold">Leadership</div>
+              <div class="text-stone-500 text-sm mt-1">Kitchen & team management</div>
+            </div>
+            <div class="p-5 rounded-xl bg-ink border border-white/10">
+              <div class="text-gold text-xl mb-2"><i class="fa-solid fa-leaf"></i></div>
+              <div class="text-white font-semibold">Approach</div>
+              <div class="text-stone-500 text-sm mt-1">Quality, hygiene & consistency</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                // Remove active class from all
-                filterBtns.forEach(b => b.classList.remove('bg-amber-600', 'text-white', 'shadow-md', 'shadow-amber-600/30'));
-                filterBtns.forEach(b => b.classList.add('bg-slate900', 'text-gray-300', 'border', 'border-gray-800'));
-                
-                // Add active to clicked
-                btn.classList.remove('bg-slate900', 'text-gray-300', 'border', 'border-gray-800');
-                btn.classList.add('bg-amber-600', 'text-white', 'shadow-md', 'shadow-amber-600/30');
+  <!-- Food Gallery -->
+  <section id="gallery" class="py-24">
+    <div class="max-w-6xl mx-auto px-5">
+      <div class="max-w-2xl mb-12">
+        <p class="text-gold uppercase tracking-[.22em] text-xs font-semibold mb-3">My food</p>
+        <h2 class="text-4xl sm:text-5xl text-white mb-4">A selection from my kitchen.</h2>
+        <p class="text-stone-400">
+          The gallery is the main focus of this portfolio. Replace these sample images with your own food photography
+          and add as many dishes as you like.
+        </p>
+      </div>
 
-                const filterValue = btn.getAttribute('data-filter');
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <article class="food-card rounded-2xl overflow-hidden bg-stone-950 border border-white/10">
+          <div class="aspect-[4/3] overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=85&w=1000&auto=format&fit=crop"
+                 alt="Pan-seared duck breast" class="w-full h-full object-cover">
+          </div>
+          <div class="p-5">
+            <p class="text-gold text-xs uppercase tracking-widest mb-2">Main Course</p>
+            <h3 class="text-xl text-white mb-2">Pan-Seared Duck Breast</h3>
+            <p class="text-stone-500 text-sm">Blackberry juniper reduction, parsnip purée and glazed baby carrots.</p>
+          </div>
+        </article>
 
-                galleryItems.forEach(item => {
-                    if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
-                        item.style.display = 'block';
-                    } else {
-                        item.style.display = 'none';
-                    }
-                });
-            });
-        });
+        <article class="food-card rounded-2xl overflow-hidden bg-stone-950 border border-white/10">
+          <div class="aspect-[4/3] overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?q=85&w=1000&auto=format&fit=crop"
+                 alt="Miso glazed sea bass" class="w-full h-full object-cover">
+          </div>
+          <div class="p-5">
+            <p class="text-gold text-xs uppercase tracking-widest mb-2">Seafood</p>
+            <h3 class="text-xl text-white mb-2">Miso-Glazed Sea Bass</h3>
+            <p class="text-stone-500 text-sm">Dashi-infused edamame purée, pickled lotus root and ginger oil.</p>
+          </div>
+        </article>
 
-        // Modal Lightbox Functions
-        function openModal(title, desc, imgUrl, tech) {
-            document.getElementById('modal-title').innerText = title;
-            document.getElementById('modal-desc').innerText = desc;
-            document.getElementById('modal-img').src = imgUrl;
-            document.getElementById('modal-tech').innerText = tech;
-            
-            const modal = document.getElementById('dish-modal');
-            modal.classList.remove('hidden');
-            modal.classList.add('flex');
-        }
+        <article class="food-card rounded-2xl overflow-hidden bg-stone-950 border border-white/10">
+          <div class="aspect-[4/3] overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=85&w=1000&auto=format&fit=crop"
+                 alt="Beef tenderloin" class="w-full h-full object-cover">
+          </div>
+          <div class="p-5">
+            <p class="text-gold text-xs uppercase tracking-widest mb-2">Fine Dining</p>
+            <h3 class="text-xl text-white mb-2">Beef Tenderloin</h3>
+            <p class="text-stone-500 text-sm">Truffle potato fondant, wild mushrooms and rich jus.</p>
+          </div>
+        </article>
 
-        function closeModal() {
-            const modal = document.getElementById('dish-modal');
-            modal.classList.add('hidden');
-            modal.classList.remove('flex');
-        }
+        <article class="food-card rounded-2xl overflow-hidden bg-stone-950 border border-white/10">
+          <div class="aspect-[4/3] overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=85&w=1000&auto=format&fit=crop"
+                 alt="Mushroom and truffle flatbread" class="w-full h-full object-cover">
+          </div>
+          <div class="p-5">
+            <p class="text-gold text-xs uppercase tracking-widest mb-2">Artisan</p>
+            <h3 class="text-xl text-white mb-2">Mushroom & Truffle Flatbread</h3>
+            <p class="text-stone-500 text-sm">Fermented dough, mozzarella, roasted mushrooms and fresh truffle.</p>
+          </div>
+        </article>
 
-        // Close modal on background click
-        document.getElementById('dish-modal').addEventListener('click', (e) => {
-            if (e.target.id === 'dish-modal') {
-                closeModal();
-            }
-        });
+        <article class="food-card rounded-2xl overflow-hidden bg-stone-950 border border-white/10">
+          <div class="aspect-[4/3] overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1555244162-803834f70033?q=85&w=1000&auto=format&fit=crop"
+                 alt="Banquet food presentation" class="w-full h-full object-cover">
+          </div>
+          <div class="p-5">
+            <p class="text-gold text-xs uppercase tracking-widest mb-2">Events</p>
+            <h3 class="text-xl text-white mb-2">Banquet Presentation</h3>
+            <p class="text-stone-500 text-sm">Large-scale food presentation designed for professional events.</p>
+          </div>
+        </article>
 
-        // Custom Notification Function
-        function showNotification(title, desc) {
-            const notif = document.getElementById('notification-box');
-            document.getElementById('notif-title').innerText = title;
-            document.getElementById('notif-desc').innerText = desc;
-            
-            notif.classList.remove('hidden', 'translate-y-10', 'opacity-0');
-            notif.classList.add('translate-y-0', 'opacity-100');
+        <article class="food-card rounded-2xl overflow-hidden bg-stone-950 border border-white/10">
+          <div class="aspect-[4/3] overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=85&w=1000&auto=format&fit=crop"
+                 alt="Chocolate dessert" class="w-full h-full object-cover">
+          </div>
+          <div class="p-5">
+            <p class="text-gold text-xs uppercase tracking-widest mb-2">Dessert</p>
+            <h3 class="text-xl text-white mb-2">Chocolate Dessert</h3>
+            <p class="text-stone-500 text-sm">Chocolate, passion fruit and hazelnut presented as a plated dessert.</p>
+          </div>
+        </article>
+      </div>
 
-            setTimeout(() => {
-                notif.classList.remove('translate-y-0', 'opacity-100');
-                notif.classList.add('translate-y-10', 'opacity-0');
-                setTimeout(() => {
-                    notif.classList.add('hidden');
-                }, 300);
-            }, 4000);
-        }
+      <div class="mt-10 p-5 rounded-2xl border border-dashed border-white/15 text-center text-stone-500 text-sm">
+        <i class="fa-solid fa-camera text-gold mr-2"></i>
+        Tip: replace the sample photos above with your own dish photos — those will make the portfolio feel truly personal.
+      </div>
+    </div>
+  </section>
 
-        // Form Submit Handler
-        function handleFormSubmit(e) {
-            e.preventDefault();
-            const name = document.getElementById('name').value;
-            showNotification('Inquiry Sent Successfully!', `Thank you ${name}. Chef Mustafa will review your message and reply promptly.`);
-            document.getElementById('contact-form').reset();
-        }
+  <!-- Career -->
+  <section id="career" class="py-24 bg-stone-950">
+    <div class="max-w-5xl mx-auto px-5">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <p class="text-gold uppercase tracking-[.22em] text-xs font-semibold mb-3">Career history</p>
+        <h2 class="text-4xl sm:text-5xl text-white mb-4">Experience behind the food.</h2>
+        <p class="text-stone-400">A simple overview of my professional journey in the culinary industry.</p>
+      </div>
 
-        // Download Resume Simulated Function
-        function downloadResume() {
-            showNotification('Resume Download', 'The professional PDF portfolio and CV for Chef Mustafa Mohammed Syed has been generated.');
-        }
-    </script>
+      <div class="relative timeline-line pl-10 space-y-10">
+        <article class="relative">
+          <div class="timeline-dot absolute -left-[37px] top-1 w-5 h-5 rounded-full bg-gold border-4 border-ink"></div>
+          <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-2">
+            <div>
+              <h3 class="text-2xl text-white">Head Chef / Köksmästare</h3>
+              <p class="text-gold text-sm font-medium">L'Étoile Fine Dining & Events</p>
+            </div>
+            <span class="text-stone-500 text-sm">2021 – Present</span>
+          </div>
+          <p class="text-stone-400 leading-relaxed">
+            Directing culinary operations, leading a kitchen brigade, developing seasonal menus and maintaining
+            high standards of food quality, hygiene and service.
+          </p>
+        </article>
+
+        <article class="relative">
+          <div class="timeline-dot absolute -left-[37px] top-1 w-5 h-5 rounded-full bg-gold border-4 border-ink"></div>
+          <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-2">
+            <div>
+              <h3 class="text-2xl text-white">Sous Chef & Banquet Lead</h3>
+              <p class="text-gold text-sm font-medium">Grand Horizon Hotel & Banquets</p>
+            </div>
+            <span class="text-stone-500 text-sm">2017 – 2021</span>
+          </div>
+          <p class="text-stone-400 leading-relaxed">
+            Supervised hot-line and banqueting service, coordinated preparation, trained junior chefs and supported
+            private event tastings and large-scale service.
+          </p>
+        </article>
+
+        <article class="relative">
+          <div class="timeline-dot absolute -left-[37px] top-1 w-5 h-5 rounded-full bg-gold border-4 border-ink"></div>
+          <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-2">
+            <div>
+              <h3 class="text-2xl text-white">Advanced Culinary Arts Diploma</h3>
+              <p class="text-gold text-sm font-medium">Culinary Institute of Professional Gastronomy</p>
+            </div>
+            <span class="text-stone-500 text-sm">2015 – 2017</span>
+          </div>
+          <p class="text-stone-400 leading-relaxed">
+            Training in classical French sauces, pastry, butchery, food science and international culinary
+            techniques, completed with honors distinction.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-20">
+    <div class="max-w-4xl mx-auto px-5 text-center">
+      <p class="text-gold uppercase tracking-[.22em] text-xs font-semibold mb-3">Get in touch</p>
+      <h2 class="text-4xl sm:text-5xl text-white mb-5">Interested in my work?</h2>
+      <p class="text-stone-400 max-w-2xl mx-auto mb-8">
+        For culinary opportunities, collaborations, private events or other professional enquiries, feel free to contact me.
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-3">
+        <a href="mailto:syedmustafa019@gmail.com" class="px-6 py-3.5 rounded-full bg-gold text-ink font-semibold hover:bg-amber-300 transition">
+          <i class="fa-solid fa-envelope mr-2"></i>Email Me
+        </a>
+        <a href="tel:+46704770123" class="px-6 py-3.5 rounded-full border border-white/20 text-white hover:bg-white/10 transition">
+          <i class="fa-solid fa-phone mr-2"></i>+46 70 477 01 23
+        </a>
+      </div>
+      <p class="text-stone-600 text-sm mt-8">Stockholm, Sweden</p>
+    </div>
+  </section>
+
+  <footer class="border-t border-white/10 py-8 text-center text-stone-600 text-sm">
+    © 2026 Mustafa Mohammed Syed · Chef Portfolio
+  </footer>
+
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+    });
+  </script>
 </body>
 </html>
